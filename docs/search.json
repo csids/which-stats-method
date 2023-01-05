@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Which Stats Method?",
+    "section": "",
+    "text": "Which Stats Method?\nThis course will provide a basic overview of general statistical methodology that can be useful in the areas of infectious diseases, environmental medicine, and labwork. By the end of this course, students will be able to identify appropriate statistical methods for a variety of circumstances.\nThis course will not teach students how to implement these statistical methods. The aim of this course is to enable the student to identify which methods are required for their study, allowing the student to identify their needs for subsequent methods courses, self-learning, or external help.\nYou should take this course if you are one of the following:\nThis course covers the following scenarios:"
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Which Stats Method?",
+    "section": "License",
+    "text": "License\n\nThis work, as a whole, is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\nThe code contained in this book is simultaneously available under the MIT license."
+  },
+  {
+    "objectID": "qmd/100-reference.html",
+    "href": "qmd/100-reference.html",
+    "title": "1  Reference",
+    "section": "",
+    "text": "Written by Richard Aubrey White."
+  },
+  {
+    "objectID": "qmd/200-variables.html#introduction",
+    "href": "qmd/200-variables.html#introduction",
+    "title": "2  Variables",
+    "section": "2.1 Introduction",
+    "text": "2.1 Introduction\nA variable is anything that can be measured or counted. In general, we think of our datasets as a rectangle, with a column for each variable and a row for each observation (there are some exceptions when discussing long/wide formatted data, but that is out of the scope of this course).\nWe care about four attributes of the variables:\n\nthe variable’s type (statistical relevance)\nthe different values the variable can take (statistical relevance)\nis the variable clean (i.e. ready to use in an analysis?) (statistical relevance)\nthe name of the variable (useful for us)\n\nWe can use the fourth attribute to help us remember the first three."
+  },
+  {
+    "objectID": "qmd/200-variables.html#continuous-variables",
+    "href": "qmd/200-variables.html#continuous-variables",
+    "title": "2  Variables",
+    "section": "2.2 Continuous Variables",
+    "text": "2.2 Continuous Variables\nA variable is continuous there is a meaningful “distance” between values.\nFor example:\n\nTemperature\nWeight\nHeight\nBMI\nBlood pressure\n\n\n\nClean continuous variables can be given the prefix con_ to denote that they are clean. For example, temperature could be called con_temperature after it has been cleaned and is ready for analysis."
+  },
+  {
+    "objectID": "qmd/200-variables.html#binary-variables",
+    "href": "qmd/200-variables.html#binary-variables",
+    "title": "2  Variables",
+    "section": "2.3 Binary Variables",
+    "text": "2.3 Binary Variables\nA variable is binary if it can only hold two values.\nFor example:\n\n0 or 1\nTrue or false\nMale or female\nSick or healthy\nBorn in Norway vs Born outside of Norway\n\n\n\nClean binary variables can be given the prefix is_ to denote that they are clean, binary, and reference the “active state”. For example, an unclean variable called sex could be recoded as 0 for female and 1 for male, then called is_male to denote that it is clean (ready for analysis), binary, and “male” is the active state when is_male=1."
+  },
+  {
+    "objectID": "qmd/200-variables.html#categorical-variable",
+    "href": "qmd/200-variables.html#categorical-variable",
+    "title": "2  Variables",
+    "section": "2.4 Categorical Variable",
+    "text": "2.4 Categorical Variable\nA variable is categorical if there is no meaningful “distance” between values.\nFor example:\n\nSick or healthy\nBorn in Norway vs Born outside of Norway\nCancer stage (I, II, III, or IV)\nBMI category (underweight, normal, or overweight)\n\n\n\nClean categorical variables can be given the prefix cat_ to denote that they are clean. For example, BMI category could be called cat_bmi after it has been cleaned and is ready for analysis."
+  },
+  {
+    "objectID": "qmd/200-variables.html#censored-variables",
+    "href": "qmd/200-variables.html#censored-variables",
+    "title": "2  Variables",
+    "section": "2.5 Censored Variables",
+    "text": "2.5 Censored Variables\nCensored variables are a subset of continuous variables. They are artificially cutoff (“censored”) at some point.\nFor example:\n\nHeight – if everyone over 175cm is recorded as “175+”\nAge – if everyone under 10 years old is recorded as “<=10”\nTime alive since receiving illness diagnosis if there is loss to followup (i.e. we know that the person has lived at least 4 years before we lost track of them)\n\n\n\nClean censored variables can be given the prefix cen_ to denote that they are clean. For example, time alive since receiving illness diagnosis could be called cen_time_alive after it has been cleaned and is ready for analysis."
+  },
+  {
+    "objectID": "qmd/200-variables.html#count-variables",
+    "href": "qmd/200-variables.html#count-variables",
+    "title": "2  Variables",
+    "section": "2.6 Count Variables",
+    "text": "2.6 Count Variables\nCount variables are a subset of continuous variables. They can only have integer values (e.g. 0, 1, 2, 3).\nFor example:\n\nNumber of cars that use the parking lot in a day\nNumber of influenza patients who use the hospital every day\nNumber of tuberculosis patients who are screened every year\n\n\n\nClean count variables can be given the prefix cou_ to denote that they are clean. For example, number of cars could be called cou_num_cars after it has been cleaned and is ready for analysis."
+  },
+  {
+    "objectID": "qmd/200-variables.html#independent-versus-dependent-variables",
+    "href": "qmd/200-variables.html#independent-versus-dependent-variables",
+    "title": "2  Variables",
+    "section": "2.7 Independent Versus Dependent Variables",
+    "text": "2.7 Independent Versus Dependent Variables\nAn independent variable is often called an exposure or predictor variable. In an experiment, this variable is manipulated by the researcher.\nA dependent variable is often called the outcome. In research, we generally want to see if (the following all mean the same thing):\n\nThe dependent variable is dependent on the independent variable\nThe predictor variable predicts the outcome.\nThe exposure affects the outcome\n\nFor ease of understanding, we will use the terms “outcome” and “exposure” for the rest of this course."
+  },
+  {
+    "objectID": "qmd/200-variables.html#dataset-workflow-pipeline",
+    "href": "qmd/200-variables.html#dataset-workflow-pipeline",
+    "title": "2  Variables",
+    "section": "2.8 Dataset workflow (pipeline)",
+    "text": "2.8 Dataset workflow (pipeline)\n\nWe begin with a raw dataset (this is never altered)\nWe clean the raw dataset and create new variables as needed\nWe save a “clean” dataset (all variables have the prefixes c_ or is_)\nWe ONLY run analyses on the clean dataset\n\nWe do all of this in “do files” that allow us to recreate the clean dataset from the raw dataset.\nThink of our analysis as making dinner, with the do files as our recipe and the raw dataset as our raw ingredients. The recipe tells us how to prepare the raw ingredients (clean dataset) and how to cook (analyse) the prepared ingredients (clean dataset) to produce the food (results).\nAll we need are raw ingredients and the recipe! The prepared ingredients and the food are downstream by-products!\nThis means that if our code is written correctly, we can delete our clean datasets and results without any worry, because the raw dataset and do files are sufficient."
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#hypothesis-testing",
+    "href": "qmd/300-hypothesis.html#hypothesis-testing",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.1 Hypothesis Testing",
+    "text": "3.1 Hypothesis Testing\nIn science, we are interested in testing hypotheses. Statistics allows us to formally test our hypotheses. In statistical testing we have a null hypothesis (\\(\\text{H}_0\\)) and an alternative hypothesis (\\(\\text{H}_1\\)). We assume the null hypothesis is true and try to find the probability of what we have observed (or something more extreme). If our observations are very unlikely (assuming the null hypothesis is true) then we reject the null hypothesis in favor of the alternative hypothesis.\nFor example:\n\\[\\text{H}_0: \\text{It is summer}\\] \\[\\text{H}_1: \\text{It is not summer}\\]\nOur observed data for today is a maximum temperature of -20C. Assuming it is summer, how likely is it that today’s maximum temperature will be -20C? Not very likely! We therefore reject \\(\\text{H}_0\\) (“it is summer”) in favor of \\(\\text{H}_1\\) (“it is not summer”). That is, we conclude that it is not summer today."
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#which-method-to-use",
+    "href": "qmd/300-hypothesis.html#which-method-to-use",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.2 Which Method To Use?",
+    "text": "3.2 Which Method To Use?\nDeciding on the appropriate statistical method is (in principle) fairly easy. You just look at the:\n\nAim (hypothesis testing or estimation of effect size?)\nOutcome type (continuous, binary, categorical, censored, count)\nExposure (type)\nParametric assumptions\nDependencies in the data\n\nand we then (essentially) use a flowchart."
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#chi-squared-test",
+    "href": "qmd/300-hypothesis.html#chi-squared-test",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.3 Chi-Squared Test",
+    "text": "3.3 Chi-Squared Test\nA Chi-Squared test is used to test if two categorical variables are associated with each other.\n\n3.3.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing (testing if two categorical variables are associated with each other.)\nOutcome: Categorical variable\nExposure: Categorical variable\nParametric assumptions: No\nDependencies: None (all observations independent)\n\n\n3.3.2 Examples\n\nTesting if people’s country of origin (Norway/Not Norway) is associated with tuberculosis status (never had TB/has had TB)\nTesting if people’s region of origin (Europe/North America/South America/Other) is associated with marital status (Single/Married/Divorced)\nTesting if county of residence (Oslo, Akershus, etc) is associated with post-surgery infection status (No infection/mild infection/deep infection)"
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#one-sample-t-test",
+    "href": "qmd/300-hypothesis.html#one-sample-t-test",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.4 One Sample T-Test",
+    "text": "3.4 One Sample T-Test\nA one sample t-test tests if the mean of a continuous variable differs from a specified value (generally zero)\n\\[\\text{H}_0: \\mu = 180\\] \\[\\text{H}_1: \\mu \\ne 180\\]\nOr rephrased:\n\\[\\text{H}_0: \\text{The average height of men is equal to 180cm}\\] \\[\\text{H}_1: \\text{The average height of men is not equal to 180cm}\\]\n\n\n\n\n\n\n3.4.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing (test if the mean of a continuous variable differs from a specified value)\nOutcome: Continuous variable\nExposure: Does not exist\nParametric assumptions: Outcome is distributed as a Normal distribution\nDependencies: None (all observations independent)\n\n\n3.4.2 Example 1\n\\(\\rightarrow\\) Testing if the average BMI of Norwegians is equal to 23\n\\[H_0: \\mu_{\\text{bmi}} = 23\\] \\[H_1: \\mu_{\\text{bmi}} \\ne 23\\]\n\n\n\n\n\n\n\n\n3.4.3 Example 2\n\\(\\rightarrow\\) Testing if the average pH of tap water is equal to 7\n\\[H_0: \\mu_{\\text{pH}} = 7\\] \\[H_1: \\mu_{\\text{pH}} \\ne 7\\]\n\n\n\n\n\n\n\n3.4.4 Example 3 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n\n3.4.5 Example 4 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#two-sample-t-tests",
+    "href": "qmd/300-hypothesis.html#two-sample-t-tests",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.5 Two sample T-Tests",
+    "text": "3.5 Two sample T-Tests\nA t-test tests if the mean of a continuous variable differs between two groups. There are two kinds of two-sample t-tests: paired and unpaired."
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#two-sample-paired-t-test",
+    "href": "qmd/300-hypothesis.html#two-sample-paired-t-test",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.6 Two-sample Paired T-Test",
+    "text": "3.6 Two-sample Paired T-Test\nA paired t-test is a special case where we have \\(N\\) participants, and each participant has two observations (generally “before experiment” and “after experiment”). We want to test if the mean of outcome variable differs between “after” and “before”.\nFor example, in a weight-loss experiment, we have \\(N\\) participants and we want to see if the average “after weight” is different from the average “before weight”.\nThis is done by subtracting the outcome from one group (“before weight”) from the outcome in the other group (“after weight”) for each person (“difference in weight”), and then performing a one-sample t-test to see if the mean of this variable is different from zero.\n\\[\\text{H}_0: \\mu_{\\text{after}-\\text{before}} = 0\\] \\[\\text{H}_1: \\mu_{\\text{after}-\\text{before}} \\ne 0\\]\n\n3.6.1 Aim/Outcome/Exposure/Parametric/Dependencies\nSpecial preprocessing of data: for each participant subtract the “before” observation from the “after” observation\nAim: Hypothesis testing (test if the mean of a continuous variable measured twice for each participant differs between “before” and “after”)\nOutcome: (“after weight” minus “before weight”) continuous variable\nExposure: \\(\\text{group}_\\text{after}\\) vs \\(\\text{group}_\\text{before}\\)\nParametric assumptions: Outcome is distributed as a Normal distribution\nDependencies: Paired data\n\n\n\n3.6.2 Example 1\n\\(\\rightarrow\\) Testing if there is a difference in blood pressure before and after treatment (measured on the same person)\n\\[\\text{H}_0: \\mu_{\\text{BP after}-\\text{BP before}} = 0\\] \\[\\text{H}_1: \\mu_{\\text{BP after}-\\text{BP before}} \\ne 0\\]\n\n\n\n\n\n\n\n\n3.6.3 Example 2\n\\(\\rightarrow\\) Testing if there is a difference in mouse DNA damage before and after irradiating (measured on the same mouse)\n\\[\\text{H}_0: \\mu_{\\text{DNA damage after}-\\text{DNA damage before}} = 0\\] \\[\\text{H}_1: \\mu_{\\text{DNA damage after}-\\text{DNA damage before}} \\ne 0\\]\n\n\n\n\n\n\n\n3.6.4 Example 3 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n\n3.6.5 Example 4 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n3.6.6 Non-Parametric Equivalent\nWilcoxon signed-rank test. This should be used when the Normality assumption fails."
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#two-sample-unpaired-t-test",
+    "href": "qmd/300-hypothesis.html#two-sample-unpaired-t-test",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.7 Two-sample Unpaired T-Test",
+    "text": "3.7 Two-sample Unpaired T-Test\nAn unpaired t-test is where we have two independent groups of \\(N_1\\) and \\(N_2\\) participants, and we want to test if the mean of the outcome variable differs between \\(\\text{group}_1\\) and \\(\\text{group}_2\\).\n\\[\\text{H}_0: \\mu_0 = \\mu_1\\] \\[\\text{H}_1: \\mu_0 \\ne \\mu_1\\]\nOr rephrased:\n\\[\\text{H}_0: \\text{The average height of men is equal to the average height of women}\\] \\[\\text{H}_1: \\text{The average height of men is not equal to the average height of women}\\]\n\n\n\n\n\n\n3.7.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing (test if the mean of a continuous variable differs between \\(\\text{group}_1\\) and \\(\\text{group}_2\\))\nOutcome: continuous variable\nExposure: \\(\\text{group}_1\\) vs \\(\\text{group}_2\\)\nParametric assumptions: Outcomes for each group are distributed as a Normal distribution\nDependencies: None (all observations independent)\n\n\n\n3.7.2 Example 1\n\\(\\rightarrow\\) Testing if the average blood pressure in people who didn’t receive treatment is different from people who did receive treatment\n\\[\\text{H}_0: \\mu_{\\text{BP treatment}} = \\mu_{\\text{BP no treatment}}\\] \\[\\text{H}_1: \\mu_{\\text{BP treatment}} \\ne \\mu_{\\text{BP no treatment}}\\]\n\n\n\n\n\n\n\n\n3.7.3 Example 2\n\\(\\rightarrow\\) Testing if the average DNA damage in mice that weren’t irradiated is different from mice that were irradiated\n\\[\\text{H}_0: \\mu_{\\text{DNA radiation}} = \\mu_{\\text{DNA no radiation}}\\] \\[\\text{H}_1: \\mu_{\\text{DNA radiation}} \\ne \\mu_{\\text{DNA no radiation}}\\]\n\n\n\n\n\n\n\n3.7.4 Example 3 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n\n3.7.5 Example 4 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n3.7.6 Non-parametric equivalent\nMann–Whitney U test (also called the Mann–Whitney–Wilcoxon (MWW), Wilcoxon rank-sum test, or Wilcoxon–Mann–Whitney test). This should be used when the Normality assumption fails."
+  },
+  {
+    "objectID": "qmd/300-hypothesis.html#anova",
+    "href": "qmd/300-hypothesis.html#anova",
+    "title": "3  Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA",
+    "section": "3.8 ANOVA",
+    "text": "3.8 ANOVA\nANOVA is an extension of the two-sample unpaired t-test. We have X independent groups of participants, and we want to test if the mean of the outcome variable differs between groups.\n\n3.8.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing (test if the mean of a continuous variable differs between some groups)\nOutcome: continuous variable\nExposure: \\(\\text{group}_1\\) vs \\(\\text{group}_2\\) (vs \\(\\text{group}_3\\) …)\nParametric assumptions: Outcomes for each group are distributed as a Normal distribution\nDependencies: None (all observations independent)\n\n\n\n3.8.2 Example 1\n\\(\\rightarrow\\) Testing if average BMI levels differ across Scandinavia\n\\[\\text{H}_0: \\mu_{\\text{Norway}} = \\mu_{\\text{Denmark}} = \\mu_{\\text{Sweden}}\\] \\[\\text{H}_1: \\mu_{\\text{Norway}} \\ne \\mu_{\\text{Denmark}} \\text{ and/or } \\mu_{\\text{Norway}} \\ne \\mu_{\\text{Sweden}}  \\text{ and/or } \\mu_{\\text{Denmark}} \\ne \\mu_{\\text{Sweden}}\\]\n\n\n\n\n\n\n\n\n3.8.3 Example 2\n\\(\\rightarrow\\) Testing if average water pH levels differ between East and West Oslo\n\\[\\text{H}_0: \\mu_{\\text{East Oslo}} = \\mu_{\\text{West Oslo}}\\] \\[\\text{H}_1: \\mu_{\\text{East Oslo}} \\ne \\mu_{\\text{West Oslo}}\\]\n\n\n\n\n\n\n\n3.8.4 Example 3 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n\n3.8.5 Example 4 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n3.8.6 Non-parametric equivalent\nKruskal–Wallis test"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#regression-in-general",
+    "href": "qmd/400-simple-regression.html#regression-in-general",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.1 Regression in general",
+    "text": "4.1 Regression in general\nRegression is the explicit modelling of a parametric association between an outcome and an exposure.\nOne such parametric association might be the following:\n\\[\\text{outcome} = 3 + 2 \\times \\text{exposure}\\]\n\n\n\n\n\nDepending on the type of outcome, different types of regression will need to be used.\nFor all regressions, the exposure can be:\n\nContinuous\nBinary (0 or 1)\nCategorical (0, 1, 2, …)\nCount data\n\nRegressions can both:\n\nPerform hypothesis testing (same as the previous tests we have learned about)\nEstimate numerically the effect size of the association between outcome and exposure (new!)"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#linear-regression",
+    "href": "qmd/400-simple-regression.html#linear-regression",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.2 Linear regression",
+    "text": "4.2 Linear regression\nIn the most basic form, we have:\n\\[\\text{outcome} = \\beta_0 + \\beta_1 \\times \\text{exposure} + \\text{error}\\]\nWhere we aim to estimate values for \\(\\beta_0\\) and \\(\\beta_1\\).\nFor example, if we run an ice cream shop:\n\\[\\text{number of ice creams sold} = 5 + 3 \\times \\text{temperature} + \\text{error}\\]\n\n\n\n\n\nIf today’s temperature is 30C, we can expect our shop to sell \\(5 + 3 \\times 30 = 95\\) ice creams. Because \\(\\beta_1\\) (\\(=3\\)) was not zero, we have a significant association between temperature and number of ice creams sold.\nAnother example, if we work as a midwife:\n\\[\\text{Child's birthweight} = 3 + 0 \\times \\text{temperature at day of delivery} + \\text{error}\\]\n\n\n\n\n\nIf today’s temperature is 30C, we can expect that children born today will be (on average) \\(3 + 0 \\times 30 = 3\\) kg. If tomorrow’s temperature is 10C, we can expect that children born today will be (on average) \\(3 + 0 \\times 10 = 3\\) kg. Because \\(\\beta_1\\) was zero, we do not have a significant association between temperature and birthweight.\n\n4.2.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing and estimating the effect size of the association between outcome and exposure\nOutcome: Continuous variable\nExposure: Continuous, Binary, Categorical, Count variable\nParametric assumptions: Residuals are distributed as a Normal distribution\nDependencies: None (all observations independent)\n\n\n\n4.2.2 Example 1\n\\(\\rightarrow\\) Testing if average birth weight (continuous outcome) is associated with parents’ income (continuous exposure)\n\\[\\text{birth weight} = \\beta_0 + \\beta_1 \\times \\text{parent's income} + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n\n\n\n\n\n\n4.2.3 Example 2\n\\(\\rightarrow\\) Testing if average birth weight (continuous outcome) is associated with child’s sex (binary exposure)\n\\[\\text{birth weight} = \\beta_0 + \\beta_1 \\times \\text{is boy} + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n\n\n\n\n\n\n4.2.4 Example 3\n\\(\\rightarrow\\) Testing if average BMI levels (continuous outcome) differ across Scandinavia (categorical exposure)\n\\[\\text{bmi} = \\beta_0 + \\beta_1 \\times \\text{is Norway} + \\beta_2 \\times \\text{is Sweden} + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = \\beta_2 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0 \\text{ and/or } \\beta_2 \\ne 0\\]\n\n\n\n\n\n\n\n4.2.5 Example 4 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n4.2.6 Example 5 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#similarities-between-t-tests-anova-and-linear-regression",
+    "href": "qmd/400-simple-regression.html#similarities-between-t-tests-anova-and-linear-regression",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.3 Similarities between t-tests, ANOVA, and linear regression",
+    "text": "4.3 Similarities between t-tests, ANOVA, and linear regression\n\n4.3.1 Example 1\nTwo-sample unpaired t-test:\n\\(\\rightarrow\\) Testing if average birth weight (continuous outcome) is different in female children versus male children\n\\[\\text{H}_0: \\mu_{\\text{boys}} = \\mu_{\\text{girls}}\\] \\[\\text{H}_1: \\mu_{\\text{boys}} \\ne \\mu_{\\text{girls}}\\]\n\n\n\n\n\n\nANOVA:\n\\(\\rightarrow\\) Testing if average birth weight (continuous outcome) is different in female children versus male children\n\\[\\text{H}_0: \\mu_{\\text{boys}} = \\mu_{\\text{girls}}\\] \\[\\text{H}_1: \\mu_{\\text{boys}} \\ne \\mu_{\\text{girls}}\\]\n\n\n\n\n\n\nLinear regression:\n\\(\\rightarrow\\) Testing if the effect of child’s sex on average birth weight (continuous outcome) is different than zero\n\\[\\text{birth weight} = \\beta_0 + \\beta_1 \\times \\text{is boy} + \\text{error}\\] \\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n\n\n\nConclusion:\n\nTwo-sample unpaired t-tests are ANOVAs with only two groups\nTwo-sample unpaired t-tests are linear regressions with a binary (0/1) exposure\nANOVA is a linear regression with a categorical exposure\n\n\n\n\n4.3.2 Example 2\nTwo-sample unpaired t-test:\n\\(\\rightarrow\\) Testing if average number of hours sleep (continuous outcome) is different in adults who are parents versus those who are childless\n\\[\\text{H}_0: \\mu_{\\text{parents}} = \\mu_{\\text{childless}}\\] \\[\\text{H}_1: \\mu_{\\text{parents}} \\ne \\mu_{\\text{childless}}\\]\n\n\n\n\n\n\nANOVA:\n\\(\\rightarrow\\) Testing if average number of hours sleep (continuous outcome) is different in adults who are parents versus those who are childless\n\\[\\text{H}_0: \\mu_{\\text{parents}} = \\mu_{\\text{childless}}\\] \\[\\text{H}_1: \\mu_{\\text{parents}} \\ne \\mu_{\\text{childless}}\\]\n\n\n\n\n\n\nLinear regression:\n\\(\\rightarrow\\) Testing if the effect of being a parent on average number of hours sleep (continuous outcome) is different than zero\n\\[\\text{birth weight} = \\beta_0 + \\beta_1 \\times \\text{is parent} + \\text{error}\\] \\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n\n\n\nConclusion:\n\nTwo-sample unpaired t-tests are ANOVAs with only two groups\nTwo-sample unpaired t-tests are linear regressions with a binary (0/1) exposure\nANOVA is a linear regression with a categorical exposure\n\n\n\n\n4.3.3 Example 3 (student fills in)\nTwo-sample unpaired t-test:\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)  \nANOVA:\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)  \nLinear regression:\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#similarities-between-anova-and-linear-regression",
+    "href": "qmd/400-simple-regression.html#similarities-between-anova-and-linear-regression",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.4 Similarities between ANOVA and linear regression",
+    "text": "4.4 Similarities between ANOVA and linear regression\n\n4.4.1 Example 1\nANOVA:\n\\(\\rightarrow\\) Testing if average birth weight (continuous outcome) differs between Scandinavian countries\n\\[\\text{H}_0: \\mu_{\\text{Norway}} = \\mu_{\\text{Denmark}} = \\mu_{\\text{Sweden}}\\] \\[\\text{H}_1: \\mu_{\\text{Norway}} \\ne \\mu_{\\text{Denmark}} \\text{ and/or } \\mu_{\\text{Norway}} \\ne \\mu_{\\text{Sweden}}  \\text{ and/or } \\mu_{\\text{Denmark}} \\ne \\mu_{\\text{Sweden}}\\]\n\n\n\n\n\n\nLinear regression:\n\\(\\rightarrow\\) Testing if the effect of country on average birth weight (continuous outcome) is different than zero\n\\[\\text{birth weight} = \\beta_0 + \\beta_1 \\times \\text{is Norway} + \\beta_2 \\times \\text{is Denmark} + \\text{error}\\] \\[\\text{H}_0: \\beta_1 = \\beta_2 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0 \\text{ and/or } \\beta_2 \\ne 0\\]\n\n\n\n\n\nConclusion:\n\nANOVA is a linear regression with a categorical exposure\n\n\n\n\n4.4.2 Example 2 (student fills in)\nANOVA:\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)  \nLinear regression:\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#logistic-regression-models",
+    "href": "qmd/400-simple-regression.html#logistic-regression-models",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.5 Logistic regression models",
+    "text": "4.5 Logistic regression models\nLogistic regression is essentially the same as linear regression, but it is used when:\n\nYou have a binary (0/1) outcome\nYou are doing a case-control study [case control studies can ONLY be analysed using logistic regression]\n\n\n4.5.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing and estimating the effect size of the association between outcome and exposure\nOutcome: Binary variable\nExposure: Continuous, Binary, Categorical, Count variable\nParametric assumptions: No\nDependencies: None (all observations independent)\n\n\n4.5.2 Example 1\n\\(\\rightarrow\\) Testing if percentage of women (binary outcome) differ across the bydels of Oslo (categorical exposure)\n\\[\\text{log}\\left(\\frac{\\text{Pr(Is woman)}}{\\text{Pr(Is man)}}\\right) = \\beta_0 + \\beta_1 \\times \\text{bydel}_1 + \\beta_2 \\times \\text{bydel}_2 + \\beta_3 \\times \\text{bydel}_3 + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = \\beta_2 = \\beta_3 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0 \\text{and/or} \\beta_2 \\ne 0 \\text{and/or} \\beta_3 \\ne 0\\]\n\n\n4.5.3 Example 2\n\\(\\rightarrow\\) Testing if risk of unemployment (binary outcome) is associated with parents’ income (continuous exposure)\n\\[\\text{log}\\left(\\frac{\\text{Pr(Is unemployed)}}{\\text{Pr(Is employed)}}\\right) = \\beta_0 + \\beta_1 \\times \\text{parent's income} + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n4.5.4 Example 3\n\\(\\rightarrow\\) Testing if risk of smoking (binary outcome) is associated with parents’ smoking status (binary exposure)\n\\[\\text{log}\\left(\\frac{\\text{Pr(Is smoker)}}{\\text{Pr(Is not smoker)}}\\right) = \\beta_0 + \\beta_1 \\times \\text{parent's are smokers} + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n4.5.5 Example 4 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\) \n\n\n4.5.6 Example 5 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#poissonnegative-binomial-regression-models",
+    "href": "qmd/400-simple-regression.html#poissonnegative-binomial-regression-models",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.6 Poisson/negative-binomial regression models",
+    "text": "4.6 Poisson/negative-binomial regression models\nPoisson/negative-binomial regression is essentially the same as linear regression, but it is used when:\n\nYou have a count outcome\n\nNegative-binomial regression is a more flexible version of poisson regression. Poisson regression requires that the residual variation (after fitting the model) is equal to the expected mean. This is quite often not the case. Negative-binomial regression fits the variation and the mean separately, removing this problem. It is therefore recommended that you always use a negative-binomial regression instead of a poisson regression. The only exception is if you encounter statistical errors with the negative-binomial regression (i.e. it won’t converge/run), then a poisson regression is your only option.\n\n4.6.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing and estimating the effect size of the association between outcome and exposure\nOutcome: Count variable\nExposure: Continuous, Binary, Categorical, Count variable\nParametric assumptions for Poisson: Mean equals variable\nParametric assumptions for negative-binomial: No\nDependencies: None (all observations independent)\n\n\n4.6.2 Example 1\n\\(\\rightarrow\\) Testing if average number of influenza cases (count outcome) is different between 2000-2009 and 2010-2015 (binary exposure) in Norway\n\\[\\text{yearly number of influenza cases} = \\beta_0 + \\beta_1 \\times \\text{is 2010 to 2015} + \\text{error}\\]\n\\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n4.6.3 Example 2 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/400-simple-regression.html#cox-regression-models",
+    "href": "qmd/400-simple-regression.html#cox-regression-models",
+    "title": "4  Simple regression (fixed effects)",
+    "section": "4.7 Cox regression models",
+    "text": "4.7 Cox regression models\nCox regression models should be used when your outcome is “time-to-event”.\nThe most common example of this is when you are following a cohort of people over time, trying to observe an (e.g. sickness, death, response). Your outcome is “length of time until person X gets disease Y”. However, a number of your participants stop responding at some point, so you only know “person X was healthy up until 200 days, when we lost contact”.Thus person X’s outcome has been censored at day 200.\n\n4.7.1 Aim/Outcome/Exposure/Parametric/Dependencies\nAim: Hypothesis testing and estimating the effect size of the association between outcome and exposure\nOutcome: Censored variable (time-to-event)\nExposure: Continuous, Binary, Categorical, Count variable\nParametric assumptions: Proportional hazards\nDependencies: None (all observations independent)\n\n\n4.7.2 Example 1\n\\(\\rightarrow\\) Testing if time-to-death (outcome) is associated with having a hospital-acquired-infection after hip surgery (binary exposure)\n\\[\\lambda(t | X_i) = \\lambda_0(t) \\times \\text{exp}(\\beta_1 \\times \\text{had HAI})\\]\nWhere \\(\\lambda(t | X_i)\\) is the hazard rate of dying at time \\(t\\) for subject \\(i\\).\n\\[\\text{H}_0: \\beta_1 = 0\\] \\[\\text{H}_1: \\beta_1 \\ne 0\\]\n\n\n4.7.3 Example 2 (student fills in)\n\\(\\rightarrow\\)  \\(H_0:\\)  \\(H_1:\\)"
+  },
+  {
+    "objectID": "qmd/500-complicated-regression.html#dependencies-in-your-data",
+    "href": "qmd/500-complicated-regression.html#dependencies-in-your-data",
+    "title": "5  Complicated regression",
+    "section": "5.1 Dependencies in your data",
+    "text": "5.1 Dependencies in your data\n\n5.1.1 What is independent data\nBroadly, having knowledge about one observation should not give you knowledge about other observations in your dataset.\nFor example, if we flip a coin ten times, knowing the result of the first coin toss (heads) will not give us knowledge about the subsequent 9 coin tosses.\n\n\n5.1.2 What is data with dependencies\nIn reality, most data have dependencies, so we will focus on some of the most important kinds that will severely impact your analyses if you do not identify them.\n\n\n5.1.3 Repeated measures/longitudinal data\nIf you have a dataset with repeated measures (e.g. some people in your cohort have more than one observation), then the repeated observations on each person cause dependencies in the data. That is, if a person has their weight measured five times, then just by knowing their first weight you can have a good guess at what their subsequent weights will be.\n\n\n5.1.4 Matched data\nInside case-control studies, for each case a control (or multiple cases) can be selected to have similar attributes. For example, for each case, a control can be selected with a similar age. These controls have been “matched” to a case, and have introduced dependencies into the data.\n\n\n5.1.5 Grouped/clustered data\nRepeated measures data is a type of clustered data, where each person is their own cluster. Matched data is also a type of clustered data, where each group of matched controls-to-a-case is a cluster.\nThere can be many other kinds of clusters, for example:\n\nData sampled from multiple hospitals could have the hospital as the cluster variable\nData sampled from multiple countries could have the country as the cluster variable\nData sampled from multiple counties/municipalities could have the country/municipality as the cluster variable\nIf it is a study of children, and multiple children from each mother are included, then the mother could be the cluster variable"
+  },
+  {
+    "objectID": "qmd/500-complicated-regression.html#analysing-data-with-dependencies",
+    "href": "qmd/500-complicated-regression.html#analysing-data-with-dependencies",
+    "title": "5  Complicated regression",
+    "section": "5.2 Analysing data with dependencies",
+    "text": "5.2 Analysing data with dependencies\n\n5.2.1 Mixed effects regression\nMixed effects regression is an extension of the simple regression models (fixed effects) that we learned about in the previous chapter. You can have:\n\nMixed effects linear regression\nMixed effects logistic regression\nMixed effects negative-binomial regression\n\nMixed effects models are models that have both fixed and random effects. “Effects” is the term used to describe the estimated impact a variable has on the outcome. For example, “the effect of smoking on the risk of lung cancer”.\nTo determine if an effect is fixed or random, we introduce the concept of pooling data (i.e. sharing strength). Let us assume we have sampled 100 people per city for 9 cities, and 2 people for 1 city, and we want to estimate the average height in each city, we can do one of the following three options:\n\nWithin each city, take the average height of the 100 (or 2) sampled people (zero pooling)\nTake the average height of 1000 sampled people and say each city is the same height (complete pooling)\nEstimate how much the average height varies between the cities. If the average height doesn’t vary much, give estimates close to #2. If the average height varies a lot, give estimates close to #1 (partial pooling)\n\nZero pooling tends to work well when you have a limited amount of effects you want to estimate, each with a good sample size (i.e. you don’t need to borrow strength from other data points). Partial pooling tends to work well when you have a large number of effects you want to estimate, each with a small sample size (i.e. you need to borrow strength from other data points).\nFixed effects are estimated with zero pooling. Random effects are estimated with partial pooling.\nWith data that has a large number of clusters, the clustering need to be accounted for in the regression model. This is done by introducing a variable that uniquely identifies each cluster, and allows the cluster effect to be estimated (e.g. in Oslo people are 1% more likely to die than in the rest of Norway). If there are a large number of clusters with a small amount of people in each cluster, then the cluster variable should be estimated using partial pooling (i.e. random effects).\nIn summary: Mixed effects regression should be used for grouped/clustered/matched data (and subsequently repeated measures/longitudinal data).\n\n\n5.2.2 Conditional logistic regression\nConditional logistic regression can also be used for matched data with a binary outcome, however, it is less flexible than mixed effects regression."
+  },
+  {
+    "objectID": "qmd/600-examples.html#poisons-information-center",
+    "href": "qmd/600-examples.html#poisons-information-center",
+    "title": "6  Examples",
+    "section": "6.1 Poisons Information Center",
+    "text": "6.1 Poisons Information Center\n\n\n\n\n\nScenario:\n\nApproximately 40 000 calls per year\nThe frequency of calls regarding different drugs/plants etc varies greatly, from a couple per year to thousands per year, so most probably one method will not cover everything.\nThe registration of data is done while on the phone, and we know there are mistakes\nOnly the field Kommentar has free text\n\nQuestion: Is the number of calls regarding women aged 15-19 who have been exposed to paracetamol rising or falling over the years.\nAim:\nOutcome:\nExposure:\nParametric assumptions:\nDependencies:\nAppropriate Method:"
+  },
+  {
+    "objectID": "qmd/600-examples.html#norwegian-water-pipes",
+    "href": "qmd/600-examples.html#norwegian-water-pipes",
+    "title": "6  Examples",
+    "section": "6.2 Norwegian Water Pipes",
+    "text": "6.2 Norwegian Water Pipes\nScenario:\n\n146 waterworks in 19 counties in Norway\nEach waterwork uses pipes to deliver water to households\nInformation on each waterwork:\n\nLength of pipes made out of asbestos (in meters)\nLength of pipes made out of iron/steel (in meters)\nLength of pipes made out of PVC (in meters)\nLength of pipes made out of PE/PEH (in meters)\nLength of pipes made out of other (in meters)\nLength of pipes made out of unknown (in meters)\nLength of pipes installed before 1910 (in meters)\nLength of pipes installed in 1910-1940 (in meters)\nLength of pipes installed in 1941-1970 (in meters)\nLength of pipes installed in 1971-2000 (in meters)\nLength of pipes installed after 2000 (in meters)\nLength of pipes installed during an unknown period (in meters)\n\nEach year, some new pipes are laid to extend the network\nEach year, some pipes are replaced\nInterruption in water delivery is estimated in hours per calendar year\nData is only for 2015\n\nQuestion: Is there an association between “interuption in water delivery” and “type of pipe material” and “pipe installation period”\nAim:\nOutcome:\nExposure:\nParametric assumptions:\nDependencies:\nAppropriate Method:"
+  },
+  {
+    "objectID": "qmd/600-examples.html#early-warning-system-ews-for-waterborne-outbreaks-part-1",
+    "href": "qmd/600-examples.html#early-warning-system-ews-for-waterborne-outbreaks-part-1",
+    "title": "6  Examples",
+    "section": "6.3 Early warning system (EWS) for waterborne outbreaks (part 1)",
+    "text": "6.3 Early warning system (EWS) for waterborne outbreaks (part 1)\nScenario:\n\nsKUHR is a syndromic surveillance system for infectious diseases, run by the NIPH.\nThe system is based on national ICPC coded consultation data from general practice in Norway.\nWe want to study to what extent sKUHR can serve as an early warning system for local waterborne outbreaks by alerting us to increases in consultation rates for syndromes indicative of gastrointestinal diseases.\n\nRetrospective syndrome data (number of gastritis cases, per week, for each municipality) from sKUHR will be aligned with outbreak data (outbreak=yes/no) from the national web-based outbreak rapid alert system (Vesuv) for the period 2006-2017.\n\nQuestion: Is there an association between “recorded outbreak” and “number of gastritis cases”\nAim:\nOutcome:\nExposure:\nParametric assumptions:\nDependencies:\nAppropriate Method:"
+  },
+  {
+    "objectID": "qmd/600-examples.html#early-warning-system-ews-for-waterborne-outbreaks-part-2",
+    "href": "qmd/600-examples.html#early-warning-system-ews-for-waterborne-outbreaks-part-2",
+    "title": "6  Examples",
+    "section": "6.4 Early warning system (EWS) for waterborne outbreaks (part 2)",
+    "text": "6.4 Early warning system (EWS) for waterborne outbreaks (part 2)\nScenario:\n\nWe have weekly data on water quality from water works (e.g. pH, turbidity)\nWe have weekly number of gastritis cases, per week, for each municipality\nWe hope to increase the knowledge about causes of waterborne outbreaks and to develop an improved surveillance system for early detection of future outbreaks.\n\nQuestion: Is there an association between “weekly number of gastritis cases” and “water quality from the water works”\nAim:\nOutcome:\nExposure:\nParametric assumptions:\nDependencies:"
+  },
+  {
+    "objectID": "qmd/600-examples.html#incidents-in-the-water-supply-system-and-illness",
+    "href": "qmd/600-examples.html#incidents-in-the-water-supply-system-and-illness",
+    "title": "6  Examples",
+    "section": "6.5 Incidents in the water supply system and illness",
+    "text": "6.5 Incidents in the water supply system and illness\nScenario:\n\nData from the water works operation (pH, turbidity) will be linked to health outcome among recipients of the drinking water.\nThe study will be a prospective cohort study, with data collected among a random selection of water works.\nData from the recruited water works will be collected in the period autumn 2017 and the 12 following months.\nApproximately 350 water works will be recruited to provide monthly data on hygienic critical points related to operation and maintenance of the water supply system.\nIn parallel, a cohort of approximately 9000 persons, served by water from the recruited water works, will submit monthly reports on symptoms that may indicate gastrointestinal illness.\nThe data collection will start in the autumn of 2017 and continue for 12 months.\n\nQuestion: Is water quality a risk factor for getting sick?\nAim:\nOutcome:\nExposure:\nParametric assumptions:\nDependencies:\nAppropriate Method:"
+  },
+  {
+    "objectID": "qmd/600-examples.html#compliance-with-boil-water-advisories-and-perception-of-risks",
+    "href": "qmd/600-examples.html#compliance-with-boil-water-advisories-and-perception-of-risks",
+    "title": "6  Examples",
+    "section": "6.6 Compliance with boil water advisories and perception of risks",
+    "text": "6.6 Compliance with boil water advisories and perception of risks\nScenario:\n\nIn this study, the compliance and perception of risks among the public with boil water advisories (BWAs) will be examined.\nAlthough BWAs is a common practice among water utilities, a meta-study suggest that there is limited information and studies on the compliance of BWAs.\nThis part, the compliance and perception of risks will be done by studying the perception of and adherence to BWAs among the consumers of drinking water in Bærum municipality.\nEven though the drinking water in Bærum is considered to have good quality, Bærum – like many water works – experience situations of pressure drops due to breaks and maintenance.\nResearch has shown that these situations may lead to an increased risk of gastrointestinal infections, and due to this the municipality of Bærum has issued a precautionary BWAs to the affected consumers with every water outage during the last 5-6 years.\nEvery year, some 12,000-22,000 consumers have received a precautionary BWA.\nThe purpose of these precautionary BWAs is to prevent health consequences caused by possible contamination of water. However, we know little about the consumer’s knowledge about why they receive these BWAs, as well as the way the consumers perceive and adhere to these BWAs.\nThis is a cross-sectional study.\nA web-survey will be presented to a randomly selected sample of consumers who received a BWA i Bærum in 2017.\nThe web-survey asks about adherence (yes/no) and demographics (e.g. age, sex, income)\n\nQuestion: Estimate adherence by demographics (and identify if it differs by demographics)\nAim:\nOutcome:\nExposure:\nParametric assumptions:\nDependencies:\nAppropriate Method:"
+  },
+  {
+    "objectID": "qmd/700-solutions.html#poisons-information-center",
+    "href": "qmd/700-solutions.html#poisons-information-center",
+    "title": "7  Solutions",
+    "section": "7.1 Poisons Information Center",
+    "text": "7.1 Poisons Information Center\nScenario:\n\nApproximately 40 000 calls per year\nThe frequency of calls regarding different drugs/plants etc varies greatly, from a couple per year to thousands per year, so most probably one method will not cover everything.\nThe registration of data is done while on the phone, and we know there are mistakes\nOnly the field Kommentar has free text\n\nQuestion: Is the number of calls regarding women aged 15-19 who have been exposed to paracetamol rising or falling over the years.\nAim: Hypothesis testing (maybe estimation of yearly effect)\nOutcome: Count data (number of calls regarding women aged 15-19 who have been exposed to paracetamol)\nExposure: Continuous (year)\nParametric assumptions: None\nDependencies: None\nAppropriate Method: Negative-binomial regression\nExample STATA code:\nnbreg number_of_calls year"
+  },
+  {
+    "objectID": "qmd/700-solutions.html#norwegian-water-pipes",
+    "href": "qmd/700-solutions.html#norwegian-water-pipes",
+    "title": "7  Solutions",
+    "section": "7.2 Norwegian Water Pipes",
+    "text": "7.2 Norwegian Water Pipes\nScenario:\n\n146 waterworks in 19 counties in Norway\nEach waterwork uses pipes to deliver water to households\nInformation on each waterwork:\n\nLength of pipes made out of asbestos (in meters)\nLength of pipes made out of iron/steel (in meters)\nLength of pipes made out of PVC (in meters)\nLength of pipes made out of PE/PEH (in meters)\nLength of pipes made out of other (in meters)\nLength of pipes made out of unknown (in meters)\nLength of pipes installed before 1910 (in meters)\nLength of pipes installed in 1910-1940 (in meters)\nLength of pipes installed in 1941-1970 (in meters)\nLength of pipes installed in 1971-2000 (in meters)\nLength of pipes installed after 2000 (in meters)\nLength of pipes installed during an unknown period (in meters)\n\nEach year, some new pipes are laid to extend the network\nEach year, some pipes are replaced\nInterruption in water delivery is estimated in hours per calendar year\nData is only for 2015\n\nQuestion: Is there an association between “interuption in water delivery” and “type of pipe material” and “pipe installation period”\nAim: Hypothesis testing\nOutcome: Count (hours interruption in water delivery)\nExposure: 12 continuous variables\nParametric assumptions: None\nDependencies: No\nAppropriate Method: Negative-binomial regression\nExample STATA code:\nnbreg hoursInterrupted pipesAsbestos pipesIronSteel pipesPVC ... pipes1910 ..."
+  },
+  {
+    "objectID": "qmd/700-solutions.html#early-warning-system-ews-for-waterborne-outbreaks-part-1",
+    "href": "qmd/700-solutions.html#early-warning-system-ews-for-waterborne-outbreaks-part-1",
+    "title": "7  Solutions",
+    "section": "7.3 Early warning system (EWS) for waterborne outbreaks (part 1)",
+    "text": "7.3 Early warning system (EWS) for waterborne outbreaks (part 1)\nScenario:\n\nsKUHR is a syndromic surveillance system for infectious diseases, run by the NIPH.\nThe system is based on national ICPC coded consultation data from general practice in Norway.\nWe want to study to what extent sKUHR can serve as an early warning system for local waterborne outbreaks by alerting us to increases in consultation rates for syndromes indicative of gastrointestinal diseases.\n\nRetrospective syndrome data (number of gastritis cases, per week, for each municipality) from sKUHR will be aligned with outbreak data (outbreak=yes/no) from the national web-based outbreak rapid alert system (Vesuv) for the period 2006-2017.\n\nQuestion: Is there an association between “recorded outbreak” and “number of gastritis cases”\nAim: Hypothesis testing\nOutcome: Binary (recorded outbreak)\nExposure: Count (number of gastritis cases)\nParametric assumptions: None\nDependencies: Yes (longitudinal data by municipality)\nAppropriate Method: Mixed effects logistic regression"
+  },
+  {
+    "objectID": "qmd/700-solutions.html#early-warning-system-ews-for-waterborne-outbreaks-part-2",
+    "href": "qmd/700-solutions.html#early-warning-system-ews-for-waterborne-outbreaks-part-2",
+    "title": "7  Solutions",
+    "section": "7.4 Early warning system (EWS) for waterborne outbreaks (part 2)",
+    "text": "7.4 Early warning system (EWS) for waterborne outbreaks (part 2)\nScenario:\n\nWe have weekly data on water quality from water works (e.g. pH, turbidity)\nWe have weekly number of gastritis cases, per week, for each municipality\nWe hope to increase the knowledge about causes of waterborne outbreaks and to develop an improved surveillance system for early detection of future outbreaks.\n\nQuestion: Is there an association between “weekly number of gastritis cases” and “water quality from the water works”\nAim: Hypothesis testing\nOutcome: Count (number of gastritis cases)\nExposure: Continuous (pH, turbidity)\nParametric assumptions: None\nDependencies: Yes (longitudinal data by municipality)\nAppropriate Method: Mixed effects negative-binomial regression"
+  },
+  {
+    "objectID": "qmd/700-solutions.html#incidents-in-the-water-supply-system-and-illness",
+    "href": "qmd/700-solutions.html#incidents-in-the-water-supply-system-and-illness",
+    "title": "7  Solutions",
+    "section": "7.5 Incidents in the water supply system and illness",
+    "text": "7.5 Incidents in the water supply system and illness\nScenario:\n\nData from the water works operation (pH, turbidity) will be linked to health outcome among recipients of the drinking water.\nThe study will be a prospective cohort study, with data collected among a random selection of water works.\nData from the recruited water works will be collected in the period autumn 2017 and the 12 following months.\nApproximately 350 water works will be recruited to provide monthly data on hygienic critical points related to operation and maintenance of the water supply system.\nIn parallel, a cohort of approximately 9000 persons, served by water from the recruited water works, will submit monthly reports on symptoms that may indicate gastrointestinal illness.\nThe data collection will start in the autumn of 2017 and continue for 12 months.\n\nQuestion: Is water quality a risk factor for getting sick?\nAim: Hypothesis testing\nOutcome: Binary (sick yes/no)\nExposure: Continuous (pH, turbidity)\nParametric assumptions: None\nDependencies: Yes (longitudinal data by person, clustered by waterwork and/or municipality)\nAppropriate Method: Mixed effects logistic regression"
+  },
+  {
+    "objectID": "qmd/700-solutions.html#compliance-with-boil-water-advisories-and-perception-of-risks",
+    "href": "qmd/700-solutions.html#compliance-with-boil-water-advisories-and-perception-of-risks",
+    "title": "7  Solutions",
+    "section": "7.6 Compliance with boil water advisories and perception of risks",
+    "text": "7.6 Compliance with boil water advisories and perception of risks\nScenario:\n\nIn this study, the compliance and perception of risks among the public with boil water advisories (BWAs) will be examined.\nAlthough BWAs is a common practice among water utilities, a meta-study suggest that there is limited information and studies on the compliance of BWAs.\nThis part, the compliance and perception of risks will be done by studying the perception of and adherence to BWAs among the consumers of drinking water in Bærum municipality.\nEven though the drinking water in Bærum is considered to have good quality, Bærum – like many water works – experience situations of pressure drops due to breaks and maintenance.\nResearch has shown that these situations may lead to an increased risk of gastrointestinal infections, and due to this the municipality of Bærum has issued a precautionary BWAs to the affected consumers with every water outage during the last 5-6 years.\nEvery year, some 12,000-22,000 consumers have received a precautionary BWA.\nThe purpose of these precautionary BWAs is to prevent health consequences caused by possible contamination of water. However, we know little about the consumer’s knowledge about why they receive these BWAs, as well as the way the consumers perceive and adhere to these BWAs.\nThis is a cross-sectional study.\nA web-survey will be presented to a randomly selected sample of consumers who received a BWA in Bærum in 2017.\nThe web-survey asks about adherence (yes/no) and demographics (e.g. age, sex, income)\n\nQuestion: Estimate adherence by demographics (and identify if it differs by demographics)\nAim: Estimation and hypothesis testing\nOutcome: Binary (adhberence yes/no)\nExposure: Binary (sex), Categorical (age, income)\nParametric assumptions: None\nDependencies: No (“randomly selected sample of consumers”)\nAppropriate Method: Logistic regression"
+  }
+]

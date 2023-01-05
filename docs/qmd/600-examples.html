@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.231">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Which Stats Method? - 6&nbsp; Examples</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../qmd/700-solutions.html" rel="next">
+<link href="../qmd/500-complicated-regression.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      color: #000000;
+background: #b8e2f2;
+    }
+    </style>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Examples</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Examples</span></h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="https://www.csids.no/resources.html">csids.no</a>
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/csids/which-stats-method" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Which Stats Method?</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/100-reference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/200-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/300-hypothesis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simple Hypothesis Testing: Chi-Squared, T-tests, and ANOVA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/400-simple-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simple regression (fixed effects)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/500-complicated-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complicated regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/600-examples.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Examples</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/700-solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#poisons-information-center" id="toc-poisons-information-center" class="nav-link active" data-scroll-target="#poisons-information-center"><span class="toc-section-number">6.1</span>  Poisons Information Center</a></li>
+  <li><a href="#norwegian-water-pipes" id="toc-norwegian-water-pipes" class="nav-link" data-scroll-target="#norwegian-water-pipes"><span class="toc-section-number">6.2</span>  Norwegian Water Pipes</a></li>
+  <li><a href="#early-warning-system-ews-for-waterborne-outbreaks-part-1" id="toc-early-warning-system-ews-for-waterborne-outbreaks-part-1" class="nav-link" data-scroll-target="#early-warning-system-ews-for-waterborne-outbreaks-part-1"><span class="toc-section-number">6.3</span>  Early warning system (EWS) for waterborne outbreaks (part 1)</a></li>
+  <li><a href="#early-warning-system-ews-for-waterborne-outbreaks-part-2" id="toc-early-warning-system-ews-for-waterborne-outbreaks-part-2" class="nav-link" data-scroll-target="#early-warning-system-ews-for-waterborne-outbreaks-part-2"><span class="toc-section-number">6.4</span>  Early warning system (EWS) for waterborne outbreaks (part 2)</a></li>
+  <li><a href="#incidents-in-the-water-supply-system-and-illness" id="toc-incidents-in-the-water-supply-system-and-illness" class="nav-link" data-scroll-target="#incidents-in-the-water-supply-system-and-illness"><span class="toc-section-number">6.5</span>  Incidents in the water supply system and illness</a></li>
+  <li><a href="#compliance-with-boil-water-advisories-and-perception-of-risks" id="toc-compliance-with-boil-water-advisories-and-perception-of-risks" class="nav-link" data-scroll-target="#compliance-with-boil-water-advisories-and-perception-of-risks"><span class="toc-section-number">6.6</span>  Compliance with boil water advisories and perception of risks</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/csids/which-stats-method/edit/main/qmd/600-examples.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/csids/which-stats-method/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="poisons-information-center" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="poisons-information-center"><span class="header-section-number">6.1</span> Poisons Information Center</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="resources/poisons_information_center.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>Scenario:</p>
+<ul>
+<li>Approximately 40 000 calls per year</li>
+<li>The frequency of calls regarding different drugs/plants etc varies greatly, from a couple per year to thousands per year, so most probably one method will not cover everything.</li>
+<li>The registration of data is done while on the phone, and we know there are mistakes</li>
+<li>Only the field Kommentar has free text</li>
+</ul>
+<p>Question: Is the number of calls regarding women aged 15-19 who have been exposed to paracetamol rising or falling over the years.</p>
+<p><strong>Aim</strong>:</p>
+<p><strong>Outcome</strong>:</p>
+<p><strong>Exposure</strong>:</p>
+<p><strong>Parametric assumptions</strong>:</p>
+<p><strong>Dependencies</strong>:</p>
+<p><strong>Appropriate Method</strong>:</p>
+</section>
+<section id="norwegian-water-pipes" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="norwegian-water-pipes"><span class="header-section-number">6.2</span> Norwegian Water Pipes</h2>
+<p>Scenario:</p>
+<ul>
+<li>146 waterworks in 19 counties in Norway</li>
+<li>Each waterwork uses pipes to deliver water to households</li>
+<li>Information on each waterwork:
+<ul>
+<li>Length of pipes made out of asbestos (in meters)</li>
+<li>Length of pipes made out of iron/steel (in meters)</li>
+<li>Length of pipes made out of PVC (in meters)</li>
+<li>Length of pipes made out of PE/PEH (in meters)</li>
+<li>Length of pipes made out of other (in meters)</li>
+<li>Length of pipes made out of unknown (in meters)</li>
+<li>Length of pipes installed before 1910 (in meters)</li>
+<li>Length of pipes installed in 1910-1940 (in meters)</li>
+<li>Length of pipes installed in 1941-1970 (in meters)</li>
+<li>Length of pipes installed in 1971-2000 (in meters)</li>
+<li>Length of pipes installed after 2000 (in meters)</li>
+<li>Length of pipes installed during an unknown period (in meters)</li>
+</ul></li>
+<li>Each year, some new pipes are laid to extend the network</li>
+<li>Each year, some pipes are replaced</li>
+<li>Interruption in water delivery is estimated in hours per calendar year</li>
+<li>Data is only for 2015</li>
+</ul>
+<p>Question: Is there an association between “interuption in water delivery” and “type of pipe material” and “pipe installation period”</p>
+<p><strong>Aim</strong>:</p>
+<p><strong>Outcome</strong>:</p>
+<p><strong>Exposure</strong>:</p>
+<p><strong>Parametric assumptions</strong>:</p>
+<p><strong>Dependencies</strong>:</p>
+<p><strong>Appropriate Method</strong>:</p>
+</section>
+<section id="early-warning-system-ews-for-waterborne-outbreaks-part-1" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="early-warning-system-ews-for-waterborne-outbreaks-part-1"><span class="header-section-number">6.3</span> Early warning system (EWS) for waterborne outbreaks (part 1)</h2>
+<p>Scenario:</p>
+<ul>
+<li><a href="https://www.fhi.no/hn/statistikk/sykdomspulsen/om-sykdomspulsen/">sKUHR</a> is a syndromic surveillance system for infectious diseases, run by the NIPH.</li>
+<li>The system is based on national ICPC coded consultation data from general practice in Norway.</li>
+<li>We want to study to what extent sKUHR can serve as an early warning system for local waterborne outbreaks by alerting us to increases in consultation rates for syndromes indicative of gastrointestinal diseases.<br>
+</li>
+<li>Retrospective syndrome data (number of gastritis cases, per week, for each municipality) from sKUHR will be aligned with outbreak data (outbreak=yes/no) from the national web-based outbreak rapid alert system (Vesuv) for the period 2006-2017.</li>
+</ul>
+<p>Question: Is there an association between “recorded outbreak” and “number of gastritis cases”</p>
+<p><strong>Aim</strong>:</p>
+<p><strong>Outcome</strong>:</p>
+<p><strong>Exposure</strong>:</p>
+<p><strong>Parametric assumptions</strong>:</p>
+<p><strong>Dependencies</strong>:</p>
+<p><strong>Appropriate Method</strong>:</p>
+</section>
+<section id="early-warning-system-ews-for-waterborne-outbreaks-part-2" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="early-warning-system-ews-for-waterborne-outbreaks-part-2"><span class="header-section-number">6.4</span> Early warning system (EWS) for waterborne outbreaks (part 2)</h2>
+<p>Scenario:</p>
+<ul>
+<li>We have weekly data on water quality from water works (e.g.&nbsp;pH, turbidity)</li>
+<li>We have weekly number of gastritis cases, per week, for each municipality</li>
+<li>We hope to increase the knowledge about causes of waterborne outbreaks and to develop an improved surveillance system for early detection of future outbreaks.</li>
+</ul>
+<p>Question: Is there an association between “weekly number of gastritis cases” and “water quality from the water works”</p>
+<p><strong>Aim</strong>:</p>
+<p><strong>Outcome</strong>:</p>
+<p><strong>Exposure</strong>:</p>
+<p><strong>Parametric assumptions</strong>:</p>
+<p><strong>Dependencies</strong>:</p>
+</section>
+<section id="incidents-in-the-water-supply-system-and-illness" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="incidents-in-the-water-supply-system-and-illness"><span class="header-section-number">6.5</span> Incidents in the water supply system and illness</h2>
+<p>Scenario:</p>
+<ul>
+<li>Data from the water works operation (pH, turbidity) will be linked to health outcome among recipients of the drinking water.</li>
+<li>The study will be a prospective cohort study, with data collected among a random selection of water works.</li>
+<li>Data from the recruited water works will be collected in the period autumn 2017 and the 12 following months.</li>
+<li>Approximately 350 water works will be recruited to provide monthly data on hygienic critical points related to operation and maintenance of the water supply system.</li>
+<li>In parallel, a cohort of approximately 9000 persons, served by water from the recruited water works, will submit monthly reports on symptoms that may indicate gastrointestinal illness.</li>
+<li>The data collection will start in the autumn of 2017 and continue for 12 months.</li>
+</ul>
+<p>Question: Is water quality a risk factor for getting sick?</p>
+<p><strong>Aim</strong>:</p>
+<p><strong>Outcome</strong>:</p>
+<p><strong>Exposure</strong>:</p>
+<p><strong>Parametric assumptions</strong>:</p>
+<p><strong>Dependencies</strong>:</p>
+<p><strong>Appropriate Method</strong>:</p>
+</section>
+<section id="compliance-with-boil-water-advisories-and-perception-of-risks" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="compliance-with-boil-water-advisories-and-perception-of-risks"><span class="header-section-number">6.6</span> Compliance with boil water advisories and perception of risks</h2>
+<p>Scenario:</p>
+<ul>
+<li>In this study, the compliance and perception of risks among the public with boil water advisories (BWAs) will be examined.</li>
+<li>Although BWAs is a common practice among water utilities, a meta-study suggest that there is limited information and studies on the compliance of BWAs.</li>
+<li>This part, the compliance and perception of risks will be done by studying the perception of and adherence to BWAs among the consumers of drinking water in Bærum municipality.</li>
+<li>Even though the drinking water in Bærum is considered to have good quality, Bærum – like many water works – experience situations of pressure drops due to breaks and maintenance.</li>
+<li>Research has shown that these situations may lead to an increased risk of gastrointestinal infections, and due to this the municipality of Bærum has issued a precautionary BWAs to the affected consumers with every water outage during the last 5-6 years.</li>
+<li>Every year, some 12,000-22,000 consumers have received a precautionary BWA.</li>
+<li>The purpose of these precautionary BWAs is to prevent health consequences caused by possible contamination of water. However, we know little about the consumer’s knowledge about why they receive these BWAs, as well as the way the consumers perceive and adhere to these BWAs.</li>
+<li>This is a cross-sectional study.</li>
+<li>A web-survey will be presented to a randomly selected sample of consumers who received a BWA i Bærum in 2017.</li>
+<li>The web-survey asks about adherence (yes/no) and demographics (e.g.&nbsp;age, sex, income)</li>
+</ul>
+<p>Question: Estimate adherence by demographics (and identify if it differs by demographics)</p>
+<p><strong>Aim</strong>:</p>
+<p><strong>Outcome</strong>:</p>
+<p><strong>Exposure</strong>:</p>
+<p><strong>Parametric assumptions</strong>:</p>
+<p><strong>Dependencies</strong>:</p>
+<p><strong>Appropriate Method</strong>:</p>
+
+
+</section>
+
+<p>Written by <a href="https://www.rwhite.no">Richard Aubrey White</a>.</p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../qmd/500-complicated-regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complicated regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../qmd/700-solutions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
