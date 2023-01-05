@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Which Stats Method? - 1&nbsp; Reference</title>
+<title>Which Stats Method? - 5&nbsp; Complicated regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../qmd/200-variables.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../qmd/600-examples.html" rel="next">
+<link href="../qmd/400-simple-regression.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -76,7 +76,7 @@ background: #b8e2f2;
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reference</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complicated regression</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -87,7 +87,7 @@ background: #b8e2f2;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reference</span></h1>
+      <h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complicated regression</span></h1>
                       </div>
   </div>
     
@@ -125,7 +125,7 @@ background: #b8e2f2;
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd/100-reference.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reference</span></a>
+  <a href="../qmd/100-reference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reference</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -145,7 +145,7 @@ background: #b8e2f2;
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd/500-complicated-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complicated regression</span></a>
+  <a href="../qmd/500-complicated-regression.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complicated regression</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -163,7 +163,25 @@ background: #b8e2f2;
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#dependencies-in-your-data" id="toc-dependencies-in-your-data" class="nav-link active" data-scroll-target="#dependencies-in-your-data"><span class="toc-section-number">5.1</span>  Dependencies in your data</a>
+  <ul class="collapse">
+  <li><a href="#what-is-independent-data" id="toc-what-is-independent-data" class="nav-link" data-scroll-target="#what-is-independent-data"><span class="toc-section-number">5.1.1</span>  What is independent data</a></li>
+  <li><a href="#what-is-data-with-dependencies" id="toc-what-is-data-with-dependencies" class="nav-link" data-scroll-target="#what-is-data-with-dependencies"><span class="toc-section-number">5.1.2</span>  What is data with dependencies</a></li>
+  <li><a href="#repeated-measureslongitudinal-data" id="toc-repeated-measureslongitudinal-data" class="nav-link" data-scroll-target="#repeated-measureslongitudinal-data"><span class="toc-section-number">5.1.3</span>  Repeated measures/longitudinal data</a></li>
+  <li><a href="#matched-data" id="toc-matched-data" class="nav-link" data-scroll-target="#matched-data"><span class="toc-section-number">5.1.4</span>  Matched data</a></li>
+  <li><a href="#groupedclustered-data" id="toc-groupedclustered-data" class="nav-link" data-scroll-target="#groupedclustered-data"><span class="toc-section-number">5.1.5</span>  Grouped/clustered data</a></li>
+  </ul></li>
+  <li><a href="#analysing-data-with-dependencies" id="toc-analysing-data-with-dependencies" class="nav-link" data-scroll-target="#analysing-data-with-dependencies"><span class="toc-section-number">5.2</span>  Analysing data with dependencies</a>
+  <ul class="collapse">
+  <li><a href="#mixed-effects-regression" id="toc-mixed-effects-regression" class="nav-link" data-scroll-target="#mixed-effects-regression"><span class="toc-section-number">5.2.1</span>  Mixed effects regression</a></li>
+  <li><a href="#conditional-logistic-regression" id="toc-conditional-logistic-regression" class="nav-link" data-scroll-target="#conditional-logistic-regression"><span class="toc-section-number">5.2.2</span>  Conditional logistic regression</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/csids/which-stats-method/edit/main/qmd/500-complicated-regression.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/csids/which-stats-method/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -171,13 +189,66 @@ background: #b8e2f2;
 
 
 
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="100-reference_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
+<section id="dependencies-in-your-data" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="dependencies-in-your-data"><span class="header-section-number">5.1</span> Dependencies in your data</h2>
+<section id="what-is-independent-data" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="what-is-independent-data"><span class="header-section-number">5.1.1</span> What is independent data</h3>
+<p>Broadly, having knowledge about one observation should not give you knowledge about other observations in your dataset.</p>
+<p>For example, if we flip a coin ten times, knowing the result of the first coin toss (heads) will not give us knowledge about the subsequent 9 coin tosses.</p>
+</section>
+<section id="what-is-data-with-dependencies" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="what-is-data-with-dependencies"><span class="header-section-number">5.1.2</span> What is data with dependencies</h3>
+<p>In reality, most data have dependencies, so we will focus on some of the most important kinds that will severely impact your analyses if you do not identify them.</p>
+</section>
+<section id="repeated-measureslongitudinal-data" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="repeated-measureslongitudinal-data"><span class="header-section-number">5.1.3</span> Repeated measures/longitudinal data</h3>
+<p>If you have a dataset with repeated measures (e.g.&nbsp;some people in your cohort have more than one observation), then the repeated observations on each person cause dependencies in the data. That is, if a person has their weight measured five times, then just by knowing their first weight you can have a good guess at what their subsequent weights will be.</p>
+</section>
+<section id="matched-data" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="matched-data"><span class="header-section-number">5.1.4</span> Matched data</h3>
+<p>Inside case-control studies, for each case a control (or multiple cases) can be selected to have similar attributes. For example, for each case, a control can be selected with a similar age. These controls have been “matched” to a case, and have introduced dependencies into the data.</p>
+</section>
+<section id="groupedclustered-data" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="groupedclustered-data"><span class="header-section-number">5.1.5</span> Grouped/clustered data</h3>
+<p>Repeated measures data is a type of clustered data, where each person is their own cluster. Matched data is also a type of clustered data, where each group of matched controls-to-a-case is a cluster.</p>
+<p>There can be many other kinds of clusters, for example:</p>
+<ul>
+<li>Data sampled from multiple hospitals could have the hospital as the cluster variable</li>
+<li>Data sampled from multiple countries could have the country as the cluster variable</li>
+<li>Data sampled from multiple counties/municipalities could have the country/municipality as the cluster variable</li>
+<li>If it is a study of children, and multiple children from each mother are included, then the mother could be the cluster variable</li>
+</ul>
+</section>
+</section>
+<section id="analysing-data-with-dependencies" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="analysing-data-with-dependencies"><span class="header-section-number">5.2</span> Analysing data with dependencies</h2>
+<section id="mixed-effects-regression" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="mixed-effects-regression"><span class="header-section-number">5.2.1</span> Mixed effects regression</h3>
+<p>Mixed effects regression is an extension of the simple regression models (fixed effects) that we learned about in the previous chapter. You can have:</p>
+<ul>
+<li>Mixed effects linear regression</li>
+<li>Mixed effects logistic regression</li>
+<li>Mixed effects negative-binomial regression</li>
+</ul>
+<p>Mixed effects models are models that have both fixed and random effects. “Effects” is the term used to describe the estimated impact a variable has on the outcome. For example, “the effect of smoking on the risk of lung cancer”.</p>
+<p>To determine if an effect is fixed or random, we introduce the concept of pooling data (i.e.&nbsp;sharing strength). Let us assume we have sampled 100 people per city for 9 cities, and 2 people for 1 city, and we want to estimate the average height in each city, we can do one of the following three options:</p>
+<ol type="1">
+<li>Within each city, take the average height of the 100 (or 2) sampled people (zero pooling)</li>
+<li>Take the average height of 1000 sampled people and say each city is the same height (complete pooling)</li>
+<li>Estimate how much the average height varies between the cities. If the average height doesn’t vary much, give estimates close to #2. If the average height varies a lot, give estimates close to #1 (partial pooling)</li>
+</ol>
+<p>Zero pooling tends to work well when you have a limited amount of effects you want to estimate, each with a good sample size (i.e.&nbsp;you don’t need to borrow strength from other data points). Partial pooling tends to work well when you have a large number of effects you want to estimate, each with a small sample size (i.e.&nbsp;you need to borrow strength from other data points).</p>
+<p>Fixed effects are estimated with zero pooling. Random effects are estimated with partial pooling.</p>
+<p>With data that has a large number of clusters, the clustering need to be accounted for in the regression model. This is done by introducing a variable that uniquely identifies each cluster, and allows the cluster effect to be estimated (e.g.&nbsp;in Oslo people are 1% more likely to die than in the rest of Norway). If there are a large number of clusters with a small amount of people in each cluster, then the cluster variable should be estimated using partial pooling (i.e.&nbsp;random effects).</p>
+<p>In summary: Mixed effects regression should be used for grouped/clustered/matched data (and subsequently repeated measures/longitudinal data).</p>
+</section>
+<section id="conditional-logistic-regression" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="conditional-logistic-regression"><span class="header-section-number">5.2.2</span> Conditional logistic regression</h3>
+<p>Conditional logistic regression can also be used for matched data with a binary outcome, however, it is less flexible than mixed effects regression.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -315,13 +386,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Which Stats Method?</span>
+      <a href="../qmd/400-simple-regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simple regression (fixed effects)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd/200-variables.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../qmd/600-examples.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Examples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
